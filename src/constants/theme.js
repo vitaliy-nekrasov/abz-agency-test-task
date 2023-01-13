@@ -1,0 +1,55 @@
+export const theme = {
+  colors: {
+    black: "rgba(0, 0, 0, 0.87)",
+    buttonDisabled: "#B4B4B4",
+    buttonHover: "#FFE302",
+    primaryColor: "#F4E041",
+    backgroundColor: "#F8F8F8",
+    secondaryColor: "#00BDD3",
+    lightGray: "#D0CFCF",
+    error: "#CB3D40",
+  },
+  space: [
+    "0px",
+    "2px",
+    "4px",
+    "8px",
+    "16px",
+    "32px",
+    "64px",
+    "128px",
+    "256px",
+    "450px",
+  ],
+  fonts: {
+    body: "'Nunito', sans-serif",
+    heading: "system-ui, sans-serif",
+    monospace: "Menlo, monospace",
+  },
+  fontSizes: {
+    xs: "12px",
+    s: "16px",
+    m: "20px",
+    l: "40px",
+    xl: "64px",
+  },
+  fontWeights: {
+    normal: 400,
+    semiBold: 600,
+    bold: 700,
+  },
+  lineHeights: {
+    body: 26,
+    heading: 40,
+  },
+  borders: {
+    none: "none",
+    normal: "1px solid",
+    fat: "2px solid",
+  },
+  radii: {
+    none: "0",
+    normal: "4px",
+    round: "50%",
+  },
+};
