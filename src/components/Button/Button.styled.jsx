@@ -6,6 +6,7 @@ export const Btn = styled.button`
   line-height: ${(p) => p.theme.space[5]};
 
   cursor: pointer;
+  text-align: center;
 
   color: ${(p) => p.theme.colors.black};
   background: ${(p) => p.theme.colors.primaryColor};
