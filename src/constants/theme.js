@@ -4,7 +4,7 @@ export const theme = {
     buttonDisabled: "#B4B4B4",
     buttonHover: "#FFE302",
     primaryColor: "#F4E041",
-    backgroundColor: "#F8F8F8",
+    backgroundColor: "#E5E5E5",
     secondaryColor: "#00BDD3",
     lightGray: "#D0CFCF",
     error: "#CB3D40",
