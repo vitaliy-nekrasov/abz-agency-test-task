@@ -14,7 +14,7 @@ export function Hero() {
           Development keeps evolving.
         </Description>
         <Flex>
-          <Button text="Sign up" />
+          <Button type={"button"} text="Sign up" />
         </Flex>
       </Wrapper>
     </main>

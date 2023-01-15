@@ -8,8 +8,8 @@ export function Header() {
     <Wrapper>
       <HandySvg src={logo} width="104" height="26" />
       <div>
-        <Button text="Users" />
-        <Button text="Sign up" />
+        <Button type={"button"} text="Users" />
+        <Button type={"button"} text="Sign up" />
       </div>
     </Wrapper>
   );

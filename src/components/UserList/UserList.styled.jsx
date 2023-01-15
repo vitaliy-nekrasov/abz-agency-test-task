@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h2`
   margin: 0;
   font-family: "Nunito";
+  font-weight: 400;
   font-size: 40px;
   line-height: 40px;
 
@@ -36,9 +37,6 @@ export const Item = styled.li`
   flex-direction: column;
   align-items: center;
   max-width: 328px;
-  white-space: nowrap;
-  overflow: hidden;
-  /* text-overflow: " [..]"; */
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -53,8 +51,9 @@ export const Photo = styled.img`
 
 export const Div = styled.div`
   width: 288px;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const UserName = styled.p`
@@ -65,6 +64,8 @@ export const UserName = styled.p`
   margin: 0;
   margin-bottom: 20px;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: rgba(0, 0, 0, 0.87);
 `;
@@ -76,8 +77,8 @@ export const UserInfo = styled.p`
 
   margin: 0;
   text-align: center;
+  overflow: hidden;
   text-overflow: ellipsis;
-  direction: ltr;
 
   color: rgba(0, 0, 0, 0.87);
 `;

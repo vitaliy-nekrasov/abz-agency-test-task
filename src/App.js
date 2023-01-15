@@ -1,18 +1,15 @@
-// import logo from './logo.svg';
-// import './App.css';
-import { Container } from "./App.styled";
 import { Header } from "./components/Header/Header";
 import { Hero } from "./components/Hero/Hero";
 import { UserList } from "./components/UserList/UserList";
+import { PostForm } from "./components/PostForm/PostForm";
 
 function App() {
   return (
     <>
-      <Container>
-        <Header />
-      </Container>
+      <Header />
       <Hero />
       <UserList />
+      <PostForm />
     </>
   );
 }
