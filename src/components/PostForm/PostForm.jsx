@@ -13,22 +13,24 @@ import {
   FileButton,
   FileText,
   Div,
+  InputLabel,
+  Form,
 } from "./PostForm.styled";
 
 export function PostForm() {
   return (
     <Wrapper>
       <Title>Working with POST request</Title>
-      <form action="">
-        <label>
+      <Form action="">
+        <InputLabel>
           <Input type="text" placeholder="Your name" />
-        </label>
-        <label>
+        </InputLabel>
+        <InputLabel>
           <Input type="text" placeholder="Email" />
-        </label>
-        <label>
+        </InputLabel>
+        <InputLabel>
           <PhoneInput type="text" placeholder="Phone" />
-        </label>
+        </InputLabel>
         <PhoneLabel>+38 (XXX) XXX - XX - XX</PhoneLabel>
         <Select>Select your position</Select>
         <RadioLabel>
@@ -55,7 +57,7 @@ export function PostForm() {
         <Div>
           <Button type={"submit"} text={"Sign up"} />
         </Div>
-      </form>
+      </Form>
     </Wrapper>
   );
 }

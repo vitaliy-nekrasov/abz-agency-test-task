@@ -9,7 +9,7 @@ import {
   Div,
 } from "./UserList.styled";
 import { useEffect, useState } from "react";
-import { getUsers } from "../services/users-api";
+import { getUsers } from "../../services/users-api";
 import { Button } from "../Button/Button";
 import placeholder from "../../img/Placeholder.jpg";
 

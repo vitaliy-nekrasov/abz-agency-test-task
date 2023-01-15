@@ -213,3 +213,6 @@ export const Div = styled.div`
   padding-bottom: 100px;
   background: #e5e5e5;
 `;
+
+export const InputLabel = styled.label``;
+export const Form = styled.form``;
