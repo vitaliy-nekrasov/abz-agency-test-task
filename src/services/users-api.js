@@ -11,3 +11,13 @@ export async function getUsers(page) {
     console.log(error);
   }
 }
+
+export async function getPositions() {
+  try {
+    const resp = await axios.get(`${baseURL}positions`);
+    const result = await resp.data.positions;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}

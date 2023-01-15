@@ -16,8 +16,16 @@ import {
   InputLabel,
   Form,
 } from "./PostForm.styled";
+import { getPositions } from "../../services/users-api";
+import { useState, useEffect } from "react";
 
 export function PostForm() {
+  const [positions, setPositions] = useState([]);
+
+  useEffect(() => {
+    getPositions().then((res) => setPositions(res));
+  }, []);
+
   return (
     <Wrapper>
       <Title>Working with POST request</Title>
@@ -33,22 +41,14 @@ export function PostForm() {
         </InputLabel>
         <PhoneLabel>+38 (XXX) XXX - XX - XX</PhoneLabel>
         <Select>Select your position</Select>
-        <RadioLabel>
-          <Radio type="radio" name="position" value="Frontend developer" />
-          Frontend developer
-        </RadioLabel>
-        <RadioLabel>
-          <Radio type="radio" name="position" value="Backend developer" />
-          Backend developer
-        </RadioLabel>
-        <RadioLabel>
-          <Radio type="radio" name="position" value="Designer" />
-          Designer
-        </RadioLabel>
-        <RadioLabel>
-          <Radio type="radio" name="position" value="QA" />
-          QA
-        </RadioLabel>
+
+        {positions.map((position) => (
+          <RadioLabel key={position.id}>
+            <Radio type="radio" name="position" value={position.name} />
+            {position.name}
+          </RadioLabel>
+        ))}
+
         <FileLabel>
           <FileInput type="file" />
           <FileButton>Upload</FileButton>
