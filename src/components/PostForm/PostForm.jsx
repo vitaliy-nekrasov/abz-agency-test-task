@@ -6,6 +6,13 @@ import {
   PhoneInput,
   PhoneLabel,
   Select,
+  Radio,
+  RadioLabel,
+  FileInput,
+  FileLabel,
+  FileButton,
+  FileText,
+  Div,
 } from "./PostForm.styled";
 
 export function PostForm() {
@@ -24,26 +31,30 @@ export function PostForm() {
         </label>
         <PhoneLabel>+38 (XXX) XXX - XX - XX</PhoneLabel>
         <Select>Select your position</Select>
-        <label>
-          <input type="radio" name="position" value="Frontend developer" />
+        <RadioLabel>
+          <Radio type="radio" name="position" value="Frontend developer" />
           Frontend developer
-        </label>
-        <label>
-          <input type="radio" name="position" value="Backend developer" />
+        </RadioLabel>
+        <RadioLabel>
+          <Radio type="radio" name="position" value="Backend developer" />
           Backend developer
-        </label>
-        <label>
-          <input type="radio" name="position" value="Designer" />
+        </RadioLabel>
+        <RadioLabel>
+          <Radio type="radio" name="position" value="Designer" />
           Designer
-        </label>
-        <label>
-          <input type="radio" name="position" value="QA" />
+        </RadioLabel>
+        <RadioLabel>
+          <Radio type="radio" name="position" value="QA" />
           QA
-        </label>
-        <label>
-          <input type="file" />
-        </label>
-        <Button type={"submit"} text={"Sign up"} />
+        </RadioLabel>
+        <FileLabel>
+          <FileInput type="file" />
+          <FileButton>Upload</FileButton>
+          <FileText>Upload your photo</FileText>
+        </FileLabel>
+        <Div>
+          <Button type={"submit"} text={"Sign up"} />
+        </Div>
       </form>
     </Wrapper>
   );
