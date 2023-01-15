@@ -24,33 +24,60 @@ export const Title = styled.h2`
 export const List = styled.ul`
   margin: 0;
   padding-left: 0;
+  margin-bottom: 50px;
   list-style: none;
 `;
 export const Item = styled.li`
   background: #ffffff;
   border-radius: 10px;
   padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: " [..]"; */
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 `;
 export const Photo = styled.img`
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  margin-bottom: 20px;
 `;
+
+export const Div = styled.div`
+  width: 288px;
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
 export const UserName = styled.p`
   font-family: "Nunito";
   font-size: 16px;
   line-height: 26px;
 
+  margin: 0;
+  margin-bottom: 20px;
   text-align: center;
 
   color: rgba(0, 0, 0, 0.87);
 `;
+
 export const UserInfo = styled.p`
   font-family: "Nunito";
   font-size: 16px;
   line-height: 26px;
 
+  margin: 0;
   text-align: center;
+  text-overflow: ellipsis;
+  direction: ltr;
 
   color: rgba(0, 0, 0, 0.87);
 `;

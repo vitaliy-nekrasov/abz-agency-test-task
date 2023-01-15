@@ -21,6 +21,9 @@ export const Btn = styled.button`
       case "Sign up": {
         return theme.space[6];
       }
+      case "Show more": {
+        return "19px";
+      }
       default:
         return;
     }
@@ -32,6 +35,9 @@ export const Btn = styled.button`
       }
       case "Sign up": {
         return theme.space[6];
+      }
+      case "Show more": {
+        return "19px";
       }
       default:
         return;
@@ -48,4 +54,23 @@ export const Btn = styled.button`
   &:not(:last-child) {
     margin-right: 10px;
   }
+
+  margin: ${({ children }) => {
+    switch (children) {
+      case "Show more": {
+        return "0 auto";
+      }
+      default:
+        return;
+    }
+  }};
+  display: ${({ children }) => {
+    switch (children) {
+      case "Show more": {
+        return "block";
+      }
+      default:
+        return;
+    }
+  }};
 `;
