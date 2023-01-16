@@ -51,6 +51,10 @@ export const Btn = styled.button`
     background: ${(p) => p.theme.colors.buttonHover};
   }
 
+  &:disabled {
+    background: ${(p) => p.theme.colors.buttonDisabled};
+  }
+
   &:not(:last-child) {
     margin-right: 10px;
   }

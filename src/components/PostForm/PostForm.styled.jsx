@@ -191,7 +191,7 @@ export const FileButton = styled.span`
 `;
 export const FileText = styled.span`
   padding-left: 16px;
-  padding-right: 92px;
+  /* padding-right: 92px; */
   padding-top: 13px;
   padding-bottom: 13px;
   display: inline-block;
@@ -199,6 +199,7 @@ export const FileText = styled.span`
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
+  width: 225px;
 
   color: #7e7e7e;
   background-color: #e5e5e5;

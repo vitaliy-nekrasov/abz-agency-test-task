@@ -21,3 +21,30 @@ export async function getPositions() {
     console.log(error);
   }
 }
+
+export async function getToken() {
+  try {
+    const resp = await axios.get(`${baseURL}token`);
+    const result = await resp.data.token;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// axios.post(url[, data[, config]])
+
+export async function signUp(data, token) {
+  try {
+    const resp = await axios({
+      method: "post",
+      url: "users",
+      data,
+      headers: { Token: token },
+    });
+    const result = await resp;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
