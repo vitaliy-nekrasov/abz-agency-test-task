@@ -16,23 +16,26 @@ import {
   InputLabel,
   Form,
 } from "./PostForm.styled";
-import { getPositions, getToken, signUp } from "../../services/users-api";
+import {
+  getPositions,
+  getToken,
+  signUp,
+  getUserById,
+} from "../../services/users-api";
 import { useState, useEffect } from "react";
 
-export function PostForm() {
+export function PostForm({ getNewUser }) {
   const [positions, setPositions] = useState([]);
   const [fileName, setFileName] = useState("Upload your photo");
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const [token, setToken] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [position, setPosition] = useState("");
   const [file, setFile] = useState("");
-
   useEffect(() => {
     getPositions().then((res) => setPositions(res));
-    getToken().then((res) => setToken(res));
+    getToken();
   }, []);
 
   useEffect(() => {
@@ -64,45 +67,19 @@ export function PostForm() {
 
   const submitForm = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    // const res = formData.forEach((value, name) => {
-    //   console.log(name, value);
-    // });
 
-    const formData2 = {
-      name: `required(${name})`,
-      email,
-      phone,
-      position_id: position,
-      photo: formData.get("photo"),
-    };
+    const formData = new FormData();
+    const fileField = document.querySelector('input[type="file"]');
+    formData.append("position_id", position);
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("photo", fileField.files[0]);
 
+    signUp(formData)
+      .then((res) => getUserById(res.user_id))
+      .then((user) => getNewUser(user));
     e.target.reset();
-    // signUp(formData2, token);
-
-    fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
-      method: "POST",
-      body: JSON.stringify(formData2),
-      headers: {
-        Token: token,
-        "Content-Type": "multipart/form-data",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        if (data.success) {
-          // process success response
-        } else {
-          // proccess server errors
-        }
-      })
-      .catch(function (error) {
-        // proccess network errors
-      });
-
     setFileName("Upload your photo");
     resetForm();
   };

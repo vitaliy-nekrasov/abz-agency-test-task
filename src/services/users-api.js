@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const baseURL = "https://frontend-test-assignment-api.abz.agency/api/v1/";
+axios.defaults.baseURL =
+  "https://frontend-test-assignment-api.abz.agency/api/v1/";
 
 export async function getUsers(page) {
   try {
-    const resp = await axios.get(`${baseURL}users?page=${page}&count=6`);
+    const resp = await axios.get(`users?page=${page}&count=6`);
     const result = await resp.data;
     return result;
   } catch (error) {
@@ -14,7 +15,7 @@ export async function getUsers(page) {
 
 export async function getPositions() {
   try {
-    const resp = await axios.get(`${baseURL}positions`);
+    const resp = await axios.get(`positions`);
     const result = await resp.data.positions;
     return result;
   } catch (error) {
@@ -24,26 +25,31 @@ export async function getPositions() {
 
 export async function getToken() {
   try {
-    const resp = await axios.get(`${baseURL}token`);
-    const result = await resp.data.token;
-    return result;
+    const resp = await axios.get(`token`);
+    axios.defaults.headers.common.Token = resp.data.token;
+    return resp.data.token;
   } catch (error) {
     console.log(error);
   }
 }
 
-// axios.post(url[, data[, config]])
-
-export async function signUp(data, token) {
+export async function signUp(data) {
   try {
-    const resp = await axios({
-      method: "post",
-      url: "users",
-      data,
-      headers: { Token: token },
+    const resp = await axios.post(`users`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
-    const result = await resp;
-    return result;
+    return resp.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getUserById(id) {
+  try {
+    const resp = await axios.get(`users/${id}`);
+    return resp.data;
   } catch (error) {
     console.log(error);
   }
