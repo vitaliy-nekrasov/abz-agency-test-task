@@ -15,6 +15,7 @@ import {
   Div,
   InputLabel,
   Form,
+  Img,
 } from "./PostForm.styled";
 import {
   getPositions,
@@ -23,6 +24,8 @@ import {
   getUserById,
 } from "../../services/users-api";
 import { useState, useEffect } from "react";
+import { Loader } from "../Loader/Loader";
+import SuccessImg from "../../img/Success register.svg";
 
 export function PostForm({ addNewUser }) {
   const [positions, setPositions] = useState([]);
@@ -33,6 +36,8 @@ export function PostForm({ addNewUser }) {
   const [phone, setPhone] = useState("");
   const [position, setPosition] = useState("");
   const [file, setFile] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getPositions().then((res) => setPositions(res));
@@ -67,95 +72,122 @@ export function PostForm({ addNewUser }) {
   };
 
   const submitForm = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
+      setIsLoading(true);
 
-    const formData = new FormData();
-    const fileField = document.querySelector('input[type="file"]');
-    formData.append("position_id", position);
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("photo", fileField.files[0]);
+      const formData = new FormData();
+      const fileField = document.querySelector('input[type="file"]');
+      formData.append("position_id", position);
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("phone", phone);
+      formData.append("photo", fileField.files[0]);
 
-    const resp = await signUp(formData);
-    if (resp.success) {
-      const newUser = await getUserById(resp.user_id);
-      addNewUser(newUser.user);
+      const resp = await signUp(formData);
+      if (resp.success) {
+        const newUser = await getUserById(resp.user_id);
+        addNewUser(newUser.user);
+        setIsSuccess(true);
+      }
+      e.target.reset();
+      setIsLoading(false);
+      setFileName("Upload your photo");
+      resetForm();
+    } catch (error) {
+      setIsLoading(false);
+      setBtnDisabled(false);
+      alert("User with this phone or email already exist");
     }
-    e.target.reset();
-    setFileName("Upload your photo");
-    resetForm();
   };
 
   return (
     <Wrapper>
-      <Title>Working with POST request</Title>
-      <Form action="" onSubmit={submitForm}>
-        <InputLabel>
-          <Input
-            type="text"
-            name="name"
-            minlength="2"
-            maxlength="60"
-            placeholder="Your name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            onChange={(e) => setName(e.currentTarget.value)}
-          />
-        </InputLabel>
-        <InputLabel>
-          <Input
-            type="email"
-            placeholder="Email"
-            name="email"
-            minlength="2"
-            maxlength="60"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
-            required
-            onChange={(e) => setEmail(e.currentTarget.value)}
-          />
-        </InputLabel>
-        <InputLabel>
-          <PhoneInput
-            type="tel"
-            placeholder="Phone"
-            name="phone"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            onChange={(e) => setPhone(e.currentTarget.value)}
-          />
-        </InputLabel>
-        <PhoneLabel>+38 (XXX) XXX - XX - XX</PhoneLabel>
-        <Select>Select your position</Select>
-
-        {positions.map((position) => (
-          <RadioLabel key={position.id}>
-            <Radio
-              type="radio"
-              name="position_id"
-              value={position.id}
+      <Title>
+        {isSuccess
+          ? "User successfully registered"
+          : "Working with POST request"}
+      </Title>
+      {isSuccess ? (
+        <Img src={SuccessImg} alt="User successfully registered" />
+      ) : (
+        <Form action="" onSubmit={submitForm}>
+          <InputLabel>
+            <Input
+              type="text"
+              name="name"
+              minlength="2"
+              maxlength="60"
+              placeholder="Your name"
+              pattern="^[A-Za-z]{2,60}"
+              title="Username should contain 2-60 characters"
               required
-              onChange={(e) => setPosition(e.currentTarget.value)}
+              onChange={(e) => setName(e.currentTarget.value)}
             />
-            {position.name}
-          </RadioLabel>
-        ))}
+          </InputLabel>
+          <InputLabel>
+            <Input
+              type="email"
+              placeholder="Email"
+              name="email"
+              minlength="2"
+              maxlength="60"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
+              required
+              title="User email, must be a valid email according to RFC2822"
+              onChange={(e) => setEmail(e.currentTarget.value)}
+            />
+          </InputLabel>
+          <InputLabel>
+            <PhoneInput
+              type="tel"
+              placeholder="Phone"
+              name="phone"
+              pattern="[\+]{0,1}380([0-9]{9})$"
+              title="User phone number. Number should start with code of Ukraine +380"
+              required
+              onChange={(e) => setPhone(e.currentTarget.value)}
+            />
+          </InputLabel>
+          <PhoneLabel>+38 (XXX) XXX - XX - XX</PhoneLabel>
+          <Select>Select your position</Select>
 
-        <FileLabel>
-          <FileInput type="file" name="photo" onChange={getFileName} required />
-          <FileButton>Upload</FileButton>
-          <FileText>{fileName}</FileText>
-        </FileLabel>
-        <Div>
-          <Button
-            type={"submit"}
-            text={"Sign up"}
-            disabledBoolean={btnDisabled}
-          />
-        </Div>
-      </Form>
+          {positions.map((position) => (
+            <RadioLabel key={position.id}>
+              <Radio
+                type="radio"
+                name="position_id"
+                value={position.id}
+                required
+                onChange={(e) => setPosition(e.currentTarget.value)}
+              />
+              {position.name}
+            </RadioLabel>
+          ))}
+
+          <FileLabel>
+            <FileInput
+              type="file"
+              name="photo"
+              onChange={getFileName}
+              required
+            />
+            <FileButton>Upload</FileButton>
+            <FileText>{fileName}</FileText>
+          </FileLabel>
+          <Div>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <Button
+                type={"submit"}
+                text={"Sign up"}
+                disabledBoolean={btnDisabled}
+              />
+            )}
+          </Div>
+        </Form>
+      )}
     </Wrapper>
   );
 }

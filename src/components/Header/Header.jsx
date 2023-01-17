@@ -7,8 +7,20 @@ export function Header() {
     <Wrapper>
       <LogoSvg />
       <div>
-        <Button type={"button"} text="Users" />
-        <Button type={"button"} text="Sign up" />
+        <Button
+          type={"button"}
+          text="Users"
+          btnHandler={() => {
+            window.scrollTo({ top: 650, behavior: "smooth" });
+          }}
+        />
+        <Button
+          type={"button"}
+          text="Sign up"
+          btnHandler={() => {
+            window.scrollTo({ top: 2650, behavior: "smooth" });
+          }}
+        />
       </div>
     </Wrapper>
   );

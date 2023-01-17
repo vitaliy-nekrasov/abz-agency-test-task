@@ -14,7 +14,13 @@ export function Hero() {
           Development keeps evolving.
         </Description>
         <Flex>
-          <Button type={"button"} text="Sign up" />
+          <Button
+            type={"button"}
+            text="Sign up"
+            btnHandler={() => {
+              window.scrollTo({ top: 2650, behavior: "smooth" });
+            }}
+          />
         </Flex>
       </Wrapper>
     </main>

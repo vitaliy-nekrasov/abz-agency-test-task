@@ -215,5 +215,13 @@ export const Div = styled.div`
   background: #e5e5e5;
 `;
 
+export const Img = styled.img`
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  width: 340px;
+  height: auto;
+`;
+
 export const InputLabel = styled.label``;
 export const Form = styled.form``;

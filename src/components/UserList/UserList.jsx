@@ -8,30 +8,13 @@ import {
   UserInfo,
   Div,
 } from "./UserList.styled";
-// import { useEffect, useState } from "react";
-// import { getUsers } from "../../services/users-api";
 import { Button } from "../Button/Button";
 import placeholder from "../../img/Placeholder.jpg";
 
 export function UserList({ users, page, totalPages, loadMore }) {
-  // const [users, setUsers] = useState([]);
-  // const [page, setPage] = useState(1);
-  // const [totalPages, setTotalPages] = useState(0);
-
-  // useEffect(() => {
-  //   getUsers(page).then((res) => {
-  //     setUsers((prevUsers) => [...prevUsers, ...res.users]);
-  //     setTotalPages(res.total_pages);
-  //   });
-  // }, [page]);
-
   const sortedUsers = users.sort(
     (a, b) => b.registration_timestamp - a.registration_timestamp
   );
-
-  // const loadMore = () => {
-  //   setPage((prevPage) => prevPage + 1);
-  // };
 
   return (
     <main>
