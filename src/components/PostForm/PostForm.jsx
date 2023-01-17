@@ -170,6 +170,8 @@ export function PostForm({ addNewUser }) {
               type="file"
               name="photo"
               onChange={getFileName}
+              accept="image/jpg"
+              size={5242880}
               required
             />
             <FileButton>Upload</FileButton>
