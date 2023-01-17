@@ -24,7 +24,7 @@ import {
 } from "../../services/users-api";
 import { useState, useEffect } from "react";
 
-export function PostForm({ getNewUser }) {
+export function PostForm({ addNewUser }) {
   const [positions, setPositions] = useState([]);
   const [fileName, setFileName] = useState("Upload your photo");
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -33,6 +33,7 @@ export function PostForm({ getNewUser }) {
   const [phone, setPhone] = useState("");
   const [position, setPosition] = useState("");
   const [file, setFile] = useState("");
+
   useEffect(() => {
     getPositions().then((res) => setPositions(res));
     getToken();
@@ -65,7 +66,7 @@ export function PostForm({ getNewUser }) {
     setFile(e.currentTarget.value);
   };
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -76,9 +77,11 @@ export function PostForm({ getNewUser }) {
     formData.append("phone", phone);
     formData.append("photo", fileField.files[0]);
 
-    signUp(formData)
-      .then((res) => getUserById(res.user_id))
-      .then((user) => getNewUser(user));
+    const resp = await signUp(formData);
+    if (resp.success) {
+      const newUser = await getUserById(resp.user_id);
+      addNewUser(newUser.user);
+    }
     e.target.reset();
     setFileName("Upload your photo");
     resetForm();

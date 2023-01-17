@@ -8,45 +8,30 @@ import {
   UserInfo,
   Div,
 } from "./UserList.styled";
-import { useEffect, useState } from "react";
-import { getUsers } from "../../services/users-api";
+// import { useEffect, useState } from "react";
+// import { getUsers } from "../../services/users-api";
 import { Button } from "../Button/Button";
 import placeholder from "../../img/Placeholder.jpg";
 
-export function UserList({ newUser }) {
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  // const [user, setUser] = useState(newUser);
+export function UserList({ users, page, totalPages, loadMore }) {
+  // const [users, setUsers] = useState([]);
+  // const [page, setPage] = useState(1);
+  // const [totalPages, setTotalPages] = useState(0);
 
-  // const getNewUser = () => {
-  //   if (user === undefined) {
-  //     return;
-  //   }
-  //   setUsers([]);
-  //   setPage(1);
-  //   setUser(newUser);
-  // };
-
-  useEffect(() => {
-    getUsers(page).then((res) => {
-      setUsers((prevUsers) => [...prevUsers, ...res.users]);
-      setTotalPages(res.total_pages);
-    });
-  }, [page]);
+  // useEffect(() => {
+  //   getUsers(page).then((res) => {
+  //     setUsers((prevUsers) => [...prevUsers, ...res.users]);
+  //     setTotalPages(res.total_pages);
+  //   });
+  // }, [page]);
 
   const sortedUsers = users.sort(
     (a, b) => b.registration_timestamp - a.registration_timestamp
   );
 
-  // const getNewUser = () => {
-  //   const user = [newUser.user];
-  //   console.log(user);
+  // const loadMore = () => {
+  //   setPage((prevPage) => prevPage + 1);
   // };
-
-  const loadMore = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
 
   return (
     <main>
