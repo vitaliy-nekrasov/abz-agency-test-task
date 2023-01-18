@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.main`
   background-color: ${(p) => p.theme.colors.backgroundColor};
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: ${(p) => p.theme.spaces[7]};
+  padding-right: ${(p) => p.theme.spaces[7]};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,15 +33,15 @@ export const InputLabel = styled.label`
 `;
 
 export const Input = styled.input`
-  padding-left: 16px;
+  padding-left: ${(p) => p.theme.spaces[7]};
   padding-top: 14px;
   padding-bottom: 14px;
   margin-bottom: 50px;
 
   font-family: "Nunito";
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
 
   color: #7e7e7e;
   width: calc(100% - 16px);
@@ -54,8 +54,8 @@ export const Input = styled.input`
   &::placeholder {
     font-family: "Nunito";
     font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: ${(p) => p.theme.fontSizes.s};
+    line-height: ${(p) => p.theme.lineHeights.body};
 
     color: #7e7e7e;
   }
@@ -67,17 +67,17 @@ export const Input = styled.input`
 
 export const Span = styled.span`
   position: absolute;
-  left: 16px;
+  left: ${(p) => p.theme.spaces[7]};
   top: -25px;
 
   font-family: "Nunito";
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
-  width: ${({ children }) => {
+  line-height: ${(p) => p.theme.lineHeights.heading};
+  width: ${({ children, theme }) => {
     switch (children) {
       case "Your name": {
-        return "60px";
+        return theme.spaces[20];
       }
       case "Email": {
         return "33px";
@@ -107,13 +107,13 @@ export const Span = styled.span`
 
 export const HelperText = styled.span`
   position: absolute;
-  left: 16px;
+  left: ${(p) => p.theme.spaces[7]};
   top: 40px;
 
   font-family: "Nunito";
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
+  line-height: ${(p) => p.theme.lineHeights.heading};
   width: 320px;
 
   color: #7e7e7e;
@@ -132,15 +132,15 @@ export const HelperText = styled.span`
 `;
 
 export const PhoneInput = styled.input`
-  padding-left: 16px;
+  padding-left: ${(p) => p.theme.spaces[7]};
   padding-top: 14px;
   padding-bottom: 14px;
   margin-bottom: 43px;
 
   font-family: "Nunito";
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
 
   color: #7e7e7e;
   width: calc(100% - 16px);
@@ -148,7 +148,7 @@ export const PhoneInput = styled.input`
 
   background: inherit;
   border: 1px solid #d0cfcf;
-  border-radius: 4px;
+  border-radius: ${(p) => p.theme.radii.normal};
   outline: none;
 
   &:focus:invalid {
@@ -159,7 +159,7 @@ export const PhoneInput = styled.input`
     font-family: "Nunito";
     font-weight: 400;
     font-size: 16px;
-    line-height: 26px;
+    line-height: ${(p) => p.theme.lineHeights.body};
 
     color: #7e7e7e;
   }
@@ -169,7 +169,7 @@ export const Select = styled.p`
   font-family: "Nunito";
   font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
+  line-height: ${(p) => p.theme.lineHeights.body};
 
   color: rgba(0, 0, 0, 0.87);
   margin: 0;
@@ -179,7 +179,7 @@ export const Select = styled.p`
 export const Radio = styled.input`
   margin: 0;
   margin-right: 12px;
-  margin-bottom: 13px;
+  margin-bottom: ${(p) => p.theme.spaces[5]};
   position: relative;
   height: 20px;
   width: 20px;
@@ -210,8 +210,8 @@ export const Radio = styled.input`
     position: absolute;
     top: 62%;
     left: 50%;
-    width: 10px;
-    height: 10px;
+    width: ${(p) => p.theme.spaces[2]};
+    height: ${(p) => p.theme.spaces[2]};
     border-radius: 50%;
     background-color: #00bdd3;
     transform: translate(-50%, -50%);
@@ -223,8 +223,8 @@ export const RadioLabel = styled.label`
   display: flex;
   font-family: "Nunito";
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
   color: rgba(0, 0, 0, 0.87);
 `;
 
@@ -243,7 +243,6 @@ export const FileLabel = styled.label`
   background: #f8f8f8;
   margin-top: 47px;
   margin-bottom: 50px;
-  /* min-width: 225px; */
   width: 0;
 `;
 export const FileButton = styled.span`
@@ -254,31 +253,31 @@ export const FileButton = styled.span`
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: ${(p) => p.theme.fontSizes.s};
 
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.87);
-  border-radius: 4px 0px 0px 4px;
+  border-radius: ${(p) => p.theme.radii.normal} 0px 0px
+    ${(p) => p.theme.radii.normal};
   background-color: #e5e5e5;
   padding: 15px 15px;
   box-sizing: border-box;
   margin: 0;
 `;
 export const FileText = styled.span`
-  padding-left: 16px;
-  /* padding-right: 100%; */
+  padding-left: ${(p) => p.theme.spaces[7]};
   position: relative;
   top: -54px;
   left: 84px;
-  padding-top: 13px;
-  padding-bottom: 13px;
+  padding-top: ${(p) => p.theme.spaces[5]};
+  padding-bottom: ${(p) => p.theme.spaces[5]};
   display: inline-block;
   font-family: "Nunito";
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
   width: 235px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -291,7 +290,8 @@ export const FileText = styled.span`
   border-top: 1px solid #d0cfcf;
   border-bottom: 1px solid #d0cfcf;
   border-right: 1px solid #d0cfcf;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0px ${(p) => p.theme.radii.normal}
+    ${(p) => p.theme.radii.normal} 0px;
 `;
 
 export const Div = styled.div`
@@ -307,13 +307,13 @@ export const Img = styled.img`
   width: 340px;
   height: auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
     width: 760px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
     width: 1000px;
   }
-  @media screen and (min-width: 1170px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[45]}) {
     width: 1150px;
   }
 `;

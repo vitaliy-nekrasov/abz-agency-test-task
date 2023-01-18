@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  padding: 10px;
+  padding: ${(p) => p.theme.spaces[2]};
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,24 +2,24 @@ import styled from "styled-components";
 
 export const Btn = styled.button`
   font-family: ${(p) => p.theme.fonts.body};
-  font-size: ${(p) => p.theme.space[4]};
-  line-height: ${(p) => p.theme.space[5]};
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
 
   cursor: pointer;
   text-align: center;
 
   color: ${(p) => p.theme.colors.black};
   background: ${(p) => p.theme.colors.primaryColor};
-  border-radius: 80px;
+  border-radius: ${(p) => p.theme.radii.button};
   border-color: transparent;
 
   padding-left: ${({ children, theme }) => {
     switch (children) {
       case "Users": {
-        return theme.space[7];
+        return theme.spaces[12];
       }
       case "Sign up": {
-        return theme.space[6];
+        return theme.spaces[10];
       }
       case "Show more": {
         return "19px";
@@ -31,10 +31,10 @@ export const Btn = styled.button`
   padding-right: ${({ children, theme }) => {
     switch (children) {
       case "Users": {
-        return theme.space[7];
+        return theme.spaces[12];
       }
       case "Sign up": {
-        return theme.space[6];
+        return theme.spaces[10];
       }
       case "Show more": {
         return "19px";
@@ -43,8 +43,8 @@ export const Btn = styled.button`
         return;
     }
   }};
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: ${(p) => p.theme.spaces[1]};
+  padding-bottom: ${(p) => p.theme.spaces[1]};
 
   &:hover,
   &:focus {
@@ -56,7 +56,7 @@ export const Btn = styled.button`
   }
 
   &:not(:last-child) {
-    margin-right: 10px;
+    margin-right: ${(p) => p.theme.spaces[2]};
   }
 
   margin: ${({ children }) => {

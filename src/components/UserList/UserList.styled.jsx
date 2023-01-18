@@ -4,21 +4,21 @@ export const Wrapper = styled.div`
   background-color: ${(p) => p.theme.colors.backgroundColor};
   padding-top: 140px;
   padding-bottom: 140px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: ${(p) => p.theme.spaces[7]};
+  padding-right: ${(p) => p.theme.spaces[7]};
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
+  @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
+    padding-left: ${(p) => p.theme.spaces[13]};
+    padding-right: ${(p) => p.theme.spaces[13]};
   }
-  @media screen and (min-width: 1024px) {
-    padding-left: 60px;
-    padding-right: 60px;
+  @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
+    padding-left: ${(p) => p.theme.spaces[20]};
+    padding-right: ${(p) => p.theme.spaces[20]};
   }
-  @media screen and (min-width: 1170px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[45]}) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -43,7 +43,7 @@ export const List = styled.ul`
   padding-left: 0;
   margin-bottom: 50px;
   list-style: none;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -51,7 +51,7 @@ export const List = styled.ul`
 `;
 export const Item = styled.li`
   background: #ffffff;
-  border-radius: 10px;
+  border-radius: ${(p) => p.theme.radii.custom};
   padding: 20px;
   width: 328px;
   box-sizing: border-box;
@@ -62,80 +62,37 @@ export const Item = styled.li`
 
   &:not(:last-child) {
     margin-bottom: 20px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
       margin-bottom: 0;
     }
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
     width: 344px;
     &:nth-child(odd) {
-      margin-right: 16px;
-      @media screen and (min-width: 1024px) {
+      margin-right: ${(p) => p.theme.spaces[7]};
+      @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
         margin-right: 0;
       }
     }
     &:not(:nth-last-child(-n + 2)) {
-      margin-bottom: 16px;
-      @media screen and (min-width: 1024px) {
+      margin-bottom: ${(p) => p.theme.spaces[7]};
+      @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
         margin-bottom: 0;
       }
     }
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
     width: 282px;
     &:not(:nth-child(3n + 3)) {
-      margin-right: 29px;
+      margin-right: ${(p) => p.theme.spaces[12]};
     }
     &:not(:nth-last-child(-n + 3)) {
-      margin-bottom: 29px;
+      margin-bottom: ${(p) => p.theme.spaces[12]};
     }
   }
-  @media screen and (min-width: 1170px) {
+  @media screen and (min-width: ${(p) => p.theme.spaces[45]}) {
     width: 370px;
   }
-  /* @media screen and (min-width: 360px) {
-    max-width: 328px;
-  }
-  @media screen and (min-width: 768px) {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-  @media screen and (min-width: 1024px) {
-    padding-left: 0;
-    padding-right: 0;
-  } */
-  /* max-width: 328px; */
-
-  /* &:not(:last-child) {
-    margin-bottom: 20px;
-    @media screen and (min-width: 768px) {
-      margin-bottom: 0;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    &:nth-child(odd) {
-      margin-right: 16px;
-      @media screen and (min-width: 1024px) {
-        margin-right: 0;
-      }
-    }
-    &:not(:nth-last-child(-n + 2)) {
-      margin-bottom: 16px;
-      @media screen and (min-width: 1024px) {
-        margin-bottom: 0;
-      }
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    &:not(:nth-child(3n + 3)) {
-      margin-right: 29px;
-    }
-    &:not(:nth-last-child(-n + 3)) {
-      margin-bottom: 29px;
-    }
-    max-width: 282px;
-  } */
 `;
 export const Photo = styled.img`
   width: 70px;
@@ -153,8 +110,8 @@ export const Div = styled.div`
 
 export const UserName = styled.p`
   font-family: "Nunito";
-  font-size: 16px;
-  line-height: 26px;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
 
   margin: 0;
   margin-bottom: 20px;
@@ -163,17 +120,12 @@ export const UserName = styled.p`
   text-overflow: ellipsis;
 
   color: rgba(0, 0, 0, 0.87);
-
-  /* @media screen and (min-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
-  } */
 `;
 
 export const UserInfo = styled.p`
   font-family: "Nunito";
-  font-size: 16px;
-  line-height: 26px;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  line-height: ${(p) => p.theme.lineHeights.body};
 
   margin: 0;
   text-align: center;
@@ -181,9 +133,4 @@ export const UserInfo = styled.p`
   text-overflow: ellipsis;
 
   color: rgba(0, 0, 0, 0.87);
-
-  /* @media screen and (min-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
-  } */
 `;

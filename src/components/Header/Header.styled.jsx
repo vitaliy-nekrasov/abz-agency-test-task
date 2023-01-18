@@ -4,21 +4,21 @@ export const Wrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-top: ${(p) => p.theme.spaces[5]};
+  padding-bottom: ${(p) => p.theme.spaces[5]};
+  padding-left: ${(p) => p.theme.spaces[7]};
+  padding-right: ${(p) => p.theme.spaces[7]};
 
-  @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
+  @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
+    padding-left: ${(p) => p.theme.spaces[13]};
+    padding-right: ${(p) => p.theme.spaces[13]};
   }
-  @media screen and (min-width: 1024px) {
-    padding-left: 60px;
-    padding-right: 60px;
+  @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
+    padding-left: ${(p) => p.theme.spaces[20]};
+    padding-right: ${(p) => p.theme.spaces[20]};
   }
-  @media screen and (min-width: 1170px) {
-    max-width: 1170px;
+  @media screen and (min-width: ${(p) => p.theme.spaces[45]}) {
+    max-width: ${(p) => p.theme.spaces[45]};
     margin-left: auto;
     margin-right: auto;
   }
