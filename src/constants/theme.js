@@ -59,6 +59,7 @@ export const theme = {
     "1000px",
     "1150px",
     "1170px",
+    "14px",
   ],
   fonts: {
     body: "'Nunito', sans-serif",

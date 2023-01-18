@@ -110,7 +110,7 @@ export function PostForm({ addNewUser }) {
       {isSuccess ? (
         <Img src={SuccessImg} alt="User successfully registered" />
       ) : (
-        <Form action="" onSubmit={submitForm}>
+        <Form action="" autoComplete="off" onSubmit={submitForm}>
           <InputLabel>
             <Input
               type="text"

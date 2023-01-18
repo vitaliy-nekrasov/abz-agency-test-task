@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background-color: ${(p) => p.theme.colors.backgroundColor};
-  padding-top: 140px;
-  padding-bottom: 140px;
+  padding-top: ${(p) => p.theme.spaces[26]};
+  padding-bottom: ${(p) => p.theme.spaces[26]};
   padding-left: ${(p) => p.theme.spaces[7]};
   padding-right: ${(p) => p.theme.spaces[7]};
   display: flex;
@@ -19,29 +19,29 @@ export const Wrapper = styled.div`
     padding-right: ${(p) => p.theme.spaces[20]};
   }
   @media screen and (min-width: ${(p) => p.theme.spaces[45]}) {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: ${(p) => p.theme.spaces[0]};
+    padding-right: ${(p) => p.theme.spaces[0]};
   }
 `;
 
 export const Title = styled.h2`
-  margin: 0;
+  margin: ${(p) => p.theme.spaces[0]};
   font-family: "Nunito";
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 40px;
+  font-weight: ${(p) => p.theme.fontWeights.normal};
+  font-size: ${(p) => p.theme.fontSizes.l};
+  line-height: ${(p) => p.theme.spaces[16]};
 
   display: flex;
   align-items: flex-end;
   text-align: center;
 
-  color: rgba(0, 0, 0, 0.87);
-  margin-bottom: 50px;
+  color: ${(p) => p.theme.colors.black};
+  margin-bottom: ${(p) => p.theme.spaces[19]};
 `;
 export const List = styled.ul`
-  margin: 0;
-  padding-left: 0;
-  margin-bottom: 50px;
+  margin: ${(p) => p.theme.spaces[0]};
+  padding-left: ${(p) => p.theme.spaces[0]};
+  margin-bottom: ${(p) => p.theme.spaces[19]};
   list-style: none;
   @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
     display: flex;
@@ -50,10 +50,10 @@ export const List = styled.ul`
   }
 `;
 export const Item = styled.li`
-  background: #ffffff;
+  background: ${(p) => p.theme.colors.white};
   border-radius: ${(p) => p.theme.radii.custom};
-  padding: 20px;
-  width: 328px;
+  padding: ${(p) => p.theme.spaces[8]};
+  width: ${(p) => p.theme.spaces[34]};
   box-sizing: border-box;
 
   display: flex;
@@ -61,28 +61,28 @@ export const Item = styled.li`
   align-items: center;
 
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: ${(p) => p.theme.spaces[8]};
     @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
-      margin-bottom: 0;
+      margin-bottom: ${(p) => p.theme.spaces[0]};
     }
   }
   @media screen and (min-width: ${(p) => p.theme.spaces[41]}) {
-    width: 344px;
+    width: ${(p) => p.theme.spaces[36]};
     &:nth-child(odd) {
       margin-right: ${(p) => p.theme.spaces[7]};
       @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
-        margin-right: 0;
+        margin-right: ${(p) => p.theme.spaces[0]};
       }
     }
     &:not(:nth-last-child(-n + 2)) {
       margin-bottom: ${(p) => p.theme.spaces[7]};
       @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
-        margin-bottom: 0;
+        margin-bottom: ${(p) => p.theme.spaces[0]};
       }
     }
   }
   @media screen and (min-width: ${(p) => p.theme.spaces[42]}) {
-    width: 282px;
+    width: ${(p) => p.theme.spaces[30]};
     &:not(:nth-child(3n + 3)) {
       margin-right: ${(p) => p.theme.spaces[12]};
     }
@@ -91,18 +91,18 @@ export const Item = styled.li`
     }
   }
   @media screen and (min-width: ${(p) => p.theme.spaces[45]}) {
-    width: 370px;
+    width: ${(p) => p.theme.spaces[37]};
   }
 `;
 export const Photo = styled.img`
-  width: 70px;
-  height: 70px;
+  width: ${(p) => p.theme.spaces[21]};
+  height: ${(p) => p.theme.spaces[21]};
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: ${(p) => p.theme.spaces[8]};
 `;
 
 export const Div = styled.div`
-  width: 288px;
+  width: ${(p) => p.theme.spaces[31]};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -113,13 +113,13 @@ export const UserName = styled.p`
   font-size: ${(p) => p.theme.fontSizes.s};
   line-height: ${(p) => p.theme.lineHeights.body};
 
-  margin: 0;
-  margin-bottom: 20px;
+  margin: ${(p) => p.theme.spaces[0]};
+  margin-bottom: ${(p) => p.theme.spaces[8]};
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: ${(p) => p.theme.colors.black};
 `;
 
 export const UserInfo = styled.p`
@@ -127,10 +127,10 @@ export const UserInfo = styled.p`
   font-size: ${(p) => p.theme.fontSizes.s};
   line-height: ${(p) => p.theme.lineHeights.body};
 
-  margin: 0;
+  margin: ${(p) => p.theme.spaces[0]};
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: ${(p) => p.theme.colors.black};
 `;
