@@ -4,7 +4,6 @@ import {
   Title,
   Input,
   PhoneInput,
-  PhoneLabel,
   Select,
   Radio,
   RadioLabel,
@@ -16,6 +15,8 @@ import {
   InputLabel,
   Form,
   Img,
+  Span,
+  HelperText,
 } from "./PostForm.styled";
 import {
   getPositions,
@@ -26,6 +27,8 @@ import {
 import { useState, useEffect } from "react";
 import { Loader } from "../Loader/Loader";
 import SuccessImg from "../../img/Success register.svg";
+
+// const nameInput = document.querySelector("#nameInput");
 
 export function PostForm({ addNewUser }) {
   const [positions, setPositions] = useState([]);
@@ -122,8 +125,17 @@ export function PostForm({ addNewUser }) {
               pattern="^[A-Za-z]{2,60}"
               title="Username should contain 2-60 characters"
               required
-              onChange={(e) => setName(e.currentTarget.value)}
+              onChange={(e) => {
+                setName(e.currentTarget.value);
+                if (e.currentTarget.value !== "") {
+                  e.currentTarget.classList.add("input");
+                } else e.currentTarget.classList.remove("input");
+              }}
             />
+            <Span>Your name</Span>
+            <HelperText>
+              Username should contain 2-60 characters, only letters
+            </HelperText>
           </InputLabel>
           <InputLabel>
             <Input
@@ -135,8 +147,17 @@ export function PostForm({ addNewUser }) {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
               required
               title="User email, must be a valid email according to RFC2822"
-              onChange={(e) => setEmail(e.currentTarget.value)}
+              onChange={(e) => {
+                setEmail(e.currentTarget.value);
+                if (e.currentTarget.value !== "") {
+                  e.currentTarget.classList.add("input");
+                } else e.currentTarget.classList.remove("input");
+              }}
             />
+            <Span>Email</Span>
+            <HelperText>
+              User email, must be a valid email according to RFC2822
+            </HelperText>
           </InputLabel>
           <InputLabel>
             <PhoneInput
@@ -146,10 +167,18 @@ export function PostForm({ addNewUser }) {
               pattern="[\+]{0,1}380([0-9]{9})$"
               title="User phone number. Number should start with code of Ukraine +380"
               required
-              onChange={(e) => setPhone(e.currentTarget.value)}
+              onChange={(e) => {
+                setPhone(e.currentTarget.value);
+                if (e.currentTarget.value !== "") {
+                  e.currentTarget.classList.add("input");
+                } else e.currentTarget.classList.remove("input");
+              }}
             />
+            <Span>Phone</Span>
+            <HelperText>
+              Number should start with code of Ukraine +380
+            </HelperText>
           </InputLabel>
-          <PhoneLabel>+38 (XXX) XXX - XX - XX</PhoneLabel>
           <Select>Select your position</Select>
 
           {positions.map((position) => (

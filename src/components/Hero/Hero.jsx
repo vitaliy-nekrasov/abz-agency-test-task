@@ -1,5 +1,5 @@
 import { Button } from "../Button/Button";
-import { Title, Description, Wrapper, Flex } from "./Hero.styled";
+import { Title, Description, Wrapper } from "./Hero.styled";
 
 export function Hero() {
   return (
@@ -13,15 +13,13 @@ export function Hero() {
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </Description>
-        <Flex>
-          <Button
-            type={"button"}
-            text="Sign up"
-            btnHandler={() => {
-              window.scrollTo({ top: 2650, behavior: "smooth" });
-            }}
-          />
-        </Flex>
+        <Button
+          type={"button"}
+          text="Sign up"
+          btnHandler={() => {
+            window.scrollTo({ top: 2650, behavior: "smooth" });
+          }}
+        />
       </Wrapper>
     </main>
   );
