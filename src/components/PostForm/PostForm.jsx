@@ -28,8 +28,6 @@ import { useState, useEffect } from "react";
 import { Loader } from "../Loader/Loader";
 import SuccessImg from "../../img/Success register.svg";
 
-// const nameInput = document.querySelector("#nameInput");
-
 export function PostForm({ addNewUser }) {
   const [positions, setPositions] = useState([]);
   const [fileName, setFileName] = useState("Upload your photo");
