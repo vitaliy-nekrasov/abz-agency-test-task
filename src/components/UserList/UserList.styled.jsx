@@ -18,6 +18,10 @@ export const Wrapper = styled.div`
     padding-left: 60px;
     padding-right: 60px;
   }
+  @media screen and (min-width: 1170px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 export const Title = styled.h2`
@@ -49,11 +53,47 @@ export const Item = styled.li`
   background: #ffffff;
   border-radius: 10px;
   padding: 20px;
+  width: 328px;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 360px) {
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    width: 344px;
+    &:nth-child(odd) {
+      margin-right: 16px;
+      @media screen and (min-width: 1024px) {
+        margin-right: 0;
+      }
+    }
+    &:not(:nth-last-child(-n + 2)) {
+      margin-bottom: 16px;
+      @media screen and (min-width: 1024px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    width: 282px;
+    &:not(:nth-child(3n + 3)) {
+      margin-right: 29px;
+    }
+    &:not(:nth-last-child(-n + 3)) {
+      margin-bottom: 29px;
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    width: 370px;
+  }
+  /* @media screen and (min-width: 360px) {
     max-width: 328px;
   }
   @media screen and (min-width: 768px) {
@@ -63,10 +103,10 @@ export const Item = styled.li`
   @media screen and (min-width: 1024px) {
     padding-left: 0;
     padding-right: 0;
-  }
+  } */
   /* max-width: 328px; */
 
-  &:not(:last-child) {
+  /* &:not(:last-child) {
     margin-bottom: 20px;
     @media screen and (min-width: 768px) {
       margin-bottom: 0;
@@ -95,7 +135,7 @@ export const Item = styled.li`
       margin-bottom: 29px;
     }
     max-width: 282px;
-  }
+  } */
 `;
 export const Photo = styled.img`
   width: 70px;
@@ -124,10 +164,10 @@ export const UserName = styled.p`
 
   color: rgba(0, 0, 0, 0.87);
 
-  @media screen and (min-width: 1024px) {
+  /* @media screen and (min-width: 1024px) {
     padding-left: 20px;
     padding-right: 20px;
-  }
+  } */
 `;
 
 export const UserInfo = styled.p`
@@ -142,8 +182,8 @@ export const UserInfo = styled.p`
 
   color: rgba(0, 0, 0, 0.87);
 
-  @media screen and (min-width: 1024px) {
+  /* @media screen and (min-width: 1024px) {
     padding-left: 20px;
     padding-right: 20px;
-  }
+  } */
 `;

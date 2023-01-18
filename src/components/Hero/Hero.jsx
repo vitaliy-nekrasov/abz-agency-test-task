@@ -1,9 +1,9 @@
 import { Button } from "../Button/Button";
-import { Title, Description, Wrapper } from "./Hero.styled";
+import { Title, Description, Wrapper, Main } from "./Hero.styled";
 
 export function Hero() {
   return (
-    <main>
+    <Main>
       <Wrapper>
         <Title>Test assignment for front-end developer</Title>
         <Description>
@@ -21,6 +21,6 @@ export function Hero() {
           }}
         />
       </Wrapper>
-    </main>
+    </Main>
   );
 }

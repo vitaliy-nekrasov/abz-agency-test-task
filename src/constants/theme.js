@@ -24,10 +24,9 @@ export const theme = {
     "256px",
     "450px",
   ],
+  spaces: ["13px", "16px", "32px", "60px", "1170px"],
   fonts: {
     body: "'Nunito', sans-serif",
-    heading: "system-ui, sans-serif",
-    monospace: "Menlo, monospace",
   },
   fontSizes: {
     xs: "12px",

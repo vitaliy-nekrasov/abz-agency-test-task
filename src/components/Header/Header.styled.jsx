@@ -6,8 +6,8 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   padding-top: 13px;
   padding-bottom: 13px;
-  padding-left: ${(p) => p.theme.space[4]};
-  padding-right: ${(p) => p.theme.space[4]};
+  padding-left: 16px;
+  padding-right: 16px;
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
@@ -16,5 +16,10 @@ export const Wrapper = styled.header`
   @media screen and (min-width: 1024px) {
     padding-left: 60px;
     padding-right: 60px;
+  }
+  @media screen and (min-width: 1170px) {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;

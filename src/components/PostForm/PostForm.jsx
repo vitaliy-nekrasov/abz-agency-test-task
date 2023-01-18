@@ -106,11 +106,7 @@ export function PostForm({ addNewUser }) {
 
   return (
     <Wrapper>
-      <Title>
-        {isSuccess
-          ? "User successfully registered"
-          : "Working with POST request"}
-      </Title>
+      <Title>{!isSuccess && "Working with POST request"}</Title>
       {isSuccess ? (
         <Img src={SuccessImg} alt="User successfully registered" />
       ) : (

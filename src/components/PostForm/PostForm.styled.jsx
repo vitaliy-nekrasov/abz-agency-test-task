@@ -306,4 +306,14 @@ export const Img = styled.img`
   margin-bottom: 100px;
   width: 340px;
   height: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 760px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 1000px;
+  }
+  @media screen and (min-width: 1170px) {
+    width: 1150px;
+  }
 `;
